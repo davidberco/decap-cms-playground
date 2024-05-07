@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
-export const InstagramFeed = () => {
+const InstagramFeed = () => {
+  useEffect(() => {
+    // Create a script element
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.charset = 'UTF-8';
+    script.src = 'https://cdn.curator.io/published/d5bfd89f-4d40-487b-b359-3ce282af776a.js';
+    
+    // Append the script element to the document body
+    document.body.appendChild(script);
 
-  (function(){
-    var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
-    i.src="https://cdn.curator.io/published/d5bfd89f-4d40-487b-b359-3ce282af776a.js";
-    e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-    })();
+    // Clean up function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
-  return (
-    <div>InstagramFeed</div>
-  )
-}
+  // Return null since this component doesn't render any UI
+  return null;
+};
+
+export default InstagramFeed;

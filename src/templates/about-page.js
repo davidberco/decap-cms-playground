@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import { InstagramFeed } from "../components/InstagramFeed";
+import InstagramFeed from "../components/InstagramFeed";
 
 
 // eslint-disable-next-line
